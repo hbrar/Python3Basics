@@ -130,7 +130,7 @@
     # similar to lists but immutable
     # Syntax: fruits = ('orange', 'apple', 'mango')
 
-    #Tuples can be used in much the same way as lists except we can modify them
+    #Tuples can be used in much the same way as lists except we can't modify them
     # fruits[0]
     # fruits[:]
     # fruits.count('apple')
@@ -262,3 +262,48 @@
 # --------------- Loop Contrl -----------------#
 #//////////////////////////////////////////////#
 
+    # for i in range(len(pets)): # i will iterate over 0, 1 and 2
+    #     pet = pets[i]
+    #     print(pet)
+    
+    # If for some reason you need the index inside the loop as well as the list element itself, you can use the enumerate function to number the elements:
+    # # for i, pet in enumerate(pets):
+    # pets[i] = pet.upper() # rewrite the list in all caps
+    
+    ## WONT WORK
+    # pet = pet.upper() would just assign gita new value to the variable pet inside the loop, without changing the original list.
+    # pets = ["cat", "dog", "budgie"]
+    # for i, pet in enumerate(pets):
+    #     pet = pet.upper()
+    # print(pets)
+    # This brings us to a common for loop pitfall: modifying a list while you’re iterating over it. The example above only modifies elements in-place, and doesn’t change their order around, but you can cause all kinds of errors and unintended behaviour if you insert or delete list elements in the middle of iteration:
+    # numbers = [1, 2, 2, 3]
+    
+    # for i, num in enumerate(numbers):
+    #     if num == 2:
+    #         del numbers[i]
+    
+    # print(numbers) # oops -- we missed one, because we shifted the elements around while we were iterating!
+
+import math
+
+x = 24
+y = 60
+# def gcd(dvr, dvd):
+#     r = dvd % dvr
+#     if r == 0:
+#         return dvr
+#     else:
+#       return  gcd(r, dvr)
+    
+# print(gcd(min(x,y),max(x,y)))
+B = [1,2,3,4,6,1000000]
+A=  [5,6,7,8,2,99999]
+# for i in range(4):
+#     for j in range(4): print('[{},{}]'.format(A[i],B[j]))
+
+# [ [pair,gcd())] for pair in [[x,y] for x in A for y in B] ]    
+
+
+print([(math.gcd(pair[0],pair[1]), pair[0] + pair[1]) for pair in [(x,y) for x in A for y in B]])
+print(max([ (math.gcd(pair[0],pair[1]), pair[0] + pair[1]) for pair in [(x,y) for x in A for y in B]])[1])
