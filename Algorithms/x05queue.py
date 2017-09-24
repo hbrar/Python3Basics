@@ -5,7 +5,7 @@ class Queue:
     def enqueue(self, item):
         self.items.append(item)
         
-    def dequeue(self, item):
+    def dequeue(self):
         return self.items.pop(0)
     
     def isEmpty(self):
