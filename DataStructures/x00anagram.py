@@ -84,6 +84,21 @@ def isAnagramCC(in1, in2):
             _isAnagram = False
             break
     return _isAnagram
+ 
+# simple & better
+def isAnagramNew(str1, str2):
+    if len(str1) != len(str2):
+        return False
+        
+    for i in range(len(str1)):
+        if str1[i] == str2[len(str2)-1-i]:
+            continue
+        else:
+            return False
+    return True
+
+    #One liner
+    #  "".join(sorted(list("abc"))) == "".join(sorted(list("cba")))
 print(isAnagramCC('abcd','bcda'))
 print(isAnagramCC('fds','dfc'))
     

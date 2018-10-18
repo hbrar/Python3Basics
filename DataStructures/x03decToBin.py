@@ -29,3 +29,38 @@ def decToBase(num,base):
     return output
     
 print(decToBase(27,16))
+
+# NEW
+def DecToBin(num):
+    stack = []
+    while num > 0:
+        stack.append(num%2)
+        num //= 2 # augmented assignment is faster
+    
+    bin=""
+    while len(stack) > 0:
+        bin += str(stack.pop())
+        
+    return bin
+    
+print(DecToBin(4))
+print(DecToBin(8))
+print(DecToBin(15))
+
+
+def decToBaseN(num,base):
+    digits = '0123456789ABCDEF'
+    stack = []
+    while num > 0:
+        stack.append(num%base)
+        num //= base # augmented assignment is faster
+    
+    bin=""
+    while len(stack) > 0:
+        bin += str(digits[stack.pop()])
+        
+    return bin
+    
+print(decToBaseN(4,2))
+print(decToBaseN(8,8))
+print(decToBaseN(15,16))
